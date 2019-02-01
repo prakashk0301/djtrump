@@ -11,8 +11,6 @@ node {
             message: "Started `${env.JOB_NAME}#${env.BUILD_NUMBER}`\n\n_The changes:_\n${lastChanges}"
 
         stage 'Test'
-            sh 'sudo yum install python-pip python-dev httpd git'
-            sh 'pip install -y virtualenv'
             sh 'virtualenv env -p python3.5'
             sh '. env/bin/activate'
             sh 'env/bin/pip install -r requirements.txt'
